@@ -16,3 +16,35 @@
  .descending{
     background-color: cadetblue;
  }
+
+ .default-border{
+    border: 2px solid blueviolet;
+ }
+
+ .cursive{
+    font-family: cursive;
+    font-size: large;
+    color: darkgreen;
+ }
+
+ .large-red-text{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: x-large;
+    color: red;
+ }
+
+ .centered{
+    display: flex;
+    flex-direction: column;
+    align-items: center;   /* center children horizontally */
+    text-align: center;
+ }
+
+ .big-top-padding{
+    padding-top: 50px;
+ }
+
+ .large-links{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: larger;
+ }
