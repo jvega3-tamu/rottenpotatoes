@@ -8,3 +8,11 @@
  *
  * Consider organizing styles into separate files for maintainability.
  */
+
+ .ascending{
+    background-color: burlywood;
+ }
+
+ .descending{
+    background-color: cadetblue;
+ }

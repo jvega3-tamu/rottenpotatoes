@@ -4,13 +4,66 @@
 
 <h1>Movies</h1>
 
-<div id="movies">
-  <% @movies.each do |movie| %>
-    <%= render movie %>
-    <p>
-      <%= link_to "Show this movie", movie %>
-    </p>
-  <% end %>
-</div>
+<table>
+  <thead>
+    <tr>
+      <th class="<%= 'ascending' if params[:sort] == "title" && params[:direction] == 'asc' %> 
+      <%= 'descending' if params[:sort] == "title" && params[:direction] == 'desc' %>"
+      >
+        <%= link_to "Title", 
+        {
+          sort: "title",
+          direction: params[:sort] == "title" && params[:direction] == "asc" ? "desc" : "asc"
+        } %>
+        <%= params[:direction] == 'asc' ? '▲' : '▼' %>
+      </th>
+      <th class="<%= 'ascending' if params[:sort] == "rating" && params[:direction] == 'asc' %> 
+      <%= 'descending' if params[:sort] == "rating" && params[:direction] == 'desc' %>"
+      >
+        <%= link_to "Rating", 
+        {
+          sort: "rating",
+          direction: params[:sort] == "rating" && params[:direction] == "asc" ? "desc" : "asc"
+        } %>
+        <%= params[:direction] == 'asc' ? '▲' : '▼' %>
+      </th>
+      <th class="<%= 'ascending' if params[:sort] == "release_date" && params[:direction] == 'asc' %> 
+      <%= 'descending' if params[:sort] == "release_date" && params[:direction] == 'desc' %>"
+      >
+        <%= link_to "Release Date", 
+        {
+          sort: "release_date",
+          direction: params[:sort] == "release_date" && params[:direction] == "asc" ? "desc" : "asc"
+        } %>
+        <%= params[:direction] == 'asc' ? '▲' : '▼' %>
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @movies.each do |movie| %>
+      <tr>
+        <td class="<%= 'ascending' if params[:sort] == "title" && params[:direction] == 'asc' %> 
+          <%= 'descending' if params[:sort] == "title" && params[:direction] == 'desc' %>"><%= movie.title %></td>
+        <td class="<%= 'ascending' if params[:sort] == "rating" && params[:direction] == 'asc' %> 
+          <%= 'descending' if params[:sort] == "rating" && params[:direction] == 'desc' %>"><%= movie.rating %></td>
+        <td class="<%= 'ascending' if params[:sort] == "release_date" && params[:direction] == 'asc' %> 
+          <%= 'descending' if params[:sort] == "release_date" && params[:direction] == 'desc' %>"><%= movie.release_date %></td>
+      </tr>
+    <% end %>
+  </tbody>
+
+  <tfoot>
+  </tfoot>
+</table>
+
+# <div id="movies">
+#   <% @movies.each do |movie| %>
+#     <%= render movie %>
+#     <p>
+#       <%= link_to "Show this movie", movie %>
+#     </p>
+#   <% end %>
+# </div>
 
 <%= link_to "New movie", new_movie_path %>
